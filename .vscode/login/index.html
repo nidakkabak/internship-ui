@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Internship Management System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- CIU LOGO -->
+<div class="ciu-logo">
+    <img src="logo1.png" alt="CIU Logo">
+</div>
+
+<!-- FLOATING PARTICLES -->
+<div class="particles" id="particles"></div>
+
+<div class="container">
+
+    <!-- LEFT PANEL -->
+    <div class="left-panel">
+        <div class="logo">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>InternshipMS</span>
+        </div>
+
+        <h1>Summer Internship<br>Management System</h1>
+        <p class="subtitle">Replace paperwork with a secure, digital workflow.</p>
+
+        <div class="feature-list">
+            <div class="feature-item">
+                <i class="fa-solid fa-user-graduate"></i>
+                <div>
+                    <h4>Student Portal</h4>
+                    <p>Daily logbook entries and report submission</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <i class="fa-solid fa-chalkboard-user"></i>
+                <div>
+                    <h4>Teacher Portal</h4>
+                    <p>Review reports and evaluate students online</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <i class="fa-solid fa-file-shield"></i>
+                <div>
+                    <h4>Secure & Role-Based Access</h4>
+                    <p>Different access levels for students and instructors</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+                <div>
+                    <h4>Digital Document Upload</h4>
+                    <p>No more paper forms or manual signatures</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- RIGHT PANEL - LOGIN -->
+    <div class="right-panel">
+        <div class="login-card" id="login-card">
+            <div class="card-badge">Welcome back</div>
+            <h2>Sign In</h2>
+
+            <div class="input-group">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" id="login-email" required>
+                <label>Email Address</label>
+                <span class="input-highlight"></span>
+            </div>
+
+            <div class="input-group">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" id="login-password" required>
+                <label>Password</label>
+                <span class="input-highlight"></span>
+                <i class="fa-solid fa-eye toggle-pw" onclick="togglePw(this)"></i>
+            </div>
+
+            <div class="forgot-row">
+                <a href="#">Forgot password?</a>
+            </div>
+
+            <button class="btn-primary" type="button" onclick="handleLogin()">
+                <span>Sign In</span>
+                <i class="fa-solid fa-arrow-right-long"></i>
+            </button>
+
+            <div class="divider"><span>or</span></div>
+
+            <button class="btn-register-trigger" type="button" onclick="openRegister()">
+                <i class="fa-solid fa-user-plus"></i>
+                <span>Create a new account</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- REGISTER OVERLAY -->
+<div class="register-overlay" id="register-overlay">
+    <div class="register-backdrop" onclick="closeRegister()"></div>
+
+    <div class="register-panel" id="register-panel">
+
+        <button class="close-btn" onclick="closeRegister()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <!-- STEP PROGRESS BAR -->
+        <div class="progress-track">
+            <div class="progress-fill" id="progress-fill"></div>
+        </div>
+
+        <!-- STEP DOTS -->
+        <div class="stepper">
+            <div class="stepper-item active" id="s1">
+                <div class="stepper-dot">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <span>Info</span>
+            </div>
+            <div class="stepper-item" id="s2">
+                <div class="stepper-dot">
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+                <span>Verify</span>
+            </div>
+            <div class="stepper-item" id="s3">
+                <div class="stepper-dot">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <span>Done</span>
+            </div>
+        </div>
+
+        <!-- STEP 1 -->
+        <div class="reg-step active-step" id="reg-step-1">
+            <div class="step-header">
+                <h3>Create your account</h3>
+                <p>Fill in your details to get started</p>
+            </div>
+
+            <div class="input-group">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" id="reg-name" required>
+                <label>Full Name</label>
+                <span class="input-highlight"></span>
+            </div>
+
+            <div class="input-group">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" id="reg-email" required>
+                <label>Email Address</label>
+                <span class="input-highlight"></span>
+            </div>
+
+            <div class="input-group">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" id="reg-password" required>
+                <label>Password</label>
+                <span class="input-highlight"></span>
+                <i class="fa-solid fa-eye toggle-pw" onclick="togglePw(this)"></i>
+            </div>
+
+            <div class="input-group">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" id="reg-confirm" required>
+                <label>Confirm Password</label>
+                <span class="input-highlight"></span>
+            </div>
+
+            <div class="role-chips">
+                <label class="role-chip active" id="chip-student" onclick="selectRole('Student')">
+                    <i class="fa-solid fa-graduation-cap"></i> Student
+                </label>
+                <label class="role-chip" id="chip-teacher" onclick="selectRole('Teacher')">
+                    <i class="fa-solid fa-chalkboard-user"></i> Teacher
+                </label>
+            </div>
+            <input type="hidden" id="reg-role" value="Student">
+
+            <button class="btn-primary" type="button" onclick="regStep1Next()">
+                <span>Continue</span>
+                <i class="fa-solid fa-arrow-right-long"></i>
+            </button>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="reg-step" id="reg-step-2">
+            <div class="step-header">
+                <h3>Verify your email</h3>
+                <p>We sent a 6-digit code to <strong id="otp-email-label"></strong></p>
+            </div>
+
+            <div class="otp-group">
+                <input class="otp-box" type="text" maxlength="1" inputmode="numeric">
+                <input class="otp-box" type="text" maxlength="1" inputmode="numeric">
+                <input class="otp-box" type="text" maxlength="1" inputmode="numeric">
+                <input class="otp-box" type="text" maxlength="1" inputmode="numeric">
+                <input class="otp-box" type="text" maxlength="1" inputmode="numeric">
+                <input class="otp-box" type="text" maxlength="1" inputmode="numeric">
+            </div>
+
+            <p class="otp-timer">Code expires in <span id="otp-countdown">02:00</span></p>
+
+            <p class="resend-line">Didn't get it? <a href="#" onclick="resendOTP(event)">Resend code</a></p>
+
+            <button class="btn-primary" type="button" onclick="regStep2Next()">
+                <span>Verify &amp; Continue</span>
+                <i class="fa-solid fa-arrow-right-long"></i>
+            </button>
+
+            <button class="btn-ghost" type="button" onclick="goRegStep(1)">
+                <i class="fa-solid fa-arrow-left"></i> Back
+            </button>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="reg-step" id="reg-step-3">
+            <div class="success-wrap">
+                <div class="success-ring">
+                    <svg viewBox="0 0 80 80">
+                        <circle class="ring-bg" cx="40" cy="40" r="34"/>
+                        <circle class="ring-fill" cx="40" cy="40" r="34" id="success-ring"/>
+                        <polyline class="check-mark" points="24,40 35,52 56,28" id="check-mark"/>
+                    </svg>
+                </div>
+                <h3>Account Created!</h3>
+                <p>You're all set. Welcome to InternshipMS.</p>
+
+                <div class="account-summary" id="account-summary"></div>
+
+                <button class="btn-primary" type="button" onclick="closeRegister(); finishRegister()">
+                    <span>Go to Sign In</span>
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

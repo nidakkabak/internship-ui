@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>StajApp — Report</title>
+  <link rel="stylesheet" href="student.css"/>
+</head>
+<body>
+<div class="bg-orbs">
+  <div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
+</div>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="sb-top">
+      <a href="dashboard.html" class="sb-logo">
+        <div class="sb-logo-icon">⬡</div>
+        <span class="sb-logo-text">StajApp</span>
+      </a>
+    </div>
+    <nav class="sb-nav">
+      <div class="sb-section-label">Ana Menü</div>
+      <a href="dashboard.html" class="sb-link"><span class="sb-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span><span>Dashboard</span></a>
+      <a href="logbook.html" class="sb-link"><span class="sb-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><span>Logbook</span><span class="sb-badge" id="sb-badge"></span></a>
+      <a href="report.html" class="sb-link active"><span class="sb-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span><span>Report</span></a>
+    </nav>
+    <div class="sb-footer">
+      <div class="sb-profile">
+        <div class="sb-avatar" id="sb-avatar">AY</div>
+        <div class="sb-profile-info">
+          <div class="sb-name" id="sb-name">Ahmet Yılmaz</div>
+          <div class="sb-role">Stajyer</div>
+        </div>
+        <a href="../login/index.html" class="sb-logout"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></a>
+      </div>
+    </div>
+  </aside>
+  <main class="main">
+    <header class="topbar">
+      <div class="topbar-left">
+        <div class="topbar-title">Report</div>
+        <div class="topbar-sub">Staj raporlarını buradan yönet</div>
+      </div>
+    </header>
+    <div class="soon-wrap anim-1">
+      <div class="soon-card">
+        <div class="soon-icon">🚧</div>
+        <div class="soon-title">Yakında Geliyor</div>
+        <p class="soon-text">Report sayfası henüz geliştirilme aşamasında. Logbook tamamlandıktan sonra bu bölüm aktif hale gelecek.</p>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
